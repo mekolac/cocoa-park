@@ -1,5 +1,4 @@
-import { Contract } from "bunzz-sdk";
-import { ethers } from "ethers";
+import { Contract, ethers } from "ethers";
 import { useEffect, useState } from "react";
 import { getMarketContract, getNftContract } from "utils/getContract";
 import { checkMetaMaskInstalled } from "utils/metamask";
@@ -53,10 +52,10 @@ export const useWallet = (): UseWalletReturns => {
     const signer = provider.getSigner(0);
     setSigner(signer);
 
-    const nftContract = await getNftContract();
+    const nftContract = await getNftContract(signer);
     setNftContract(nftContract);
 
-    const marketContract = await getMarketContract();
+    const marketContract = await getMarketContract(signer);
     setMarketContract(marketContract);
   };
 

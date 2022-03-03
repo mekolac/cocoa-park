@@ -18,6 +18,9 @@ export const Header: VFC = () => {
           </Text>
 
           <HStack gap="20px">
+            <NextLink href={ROUTES.home}>
+              <Link fontSize="18px">Home</Link>
+            </NextLink>
             <NextLink href={ROUTES.mint}>
               <Link fontSize="18px">Mint</Link>
             </NextLink>

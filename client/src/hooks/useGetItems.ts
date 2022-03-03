@@ -36,6 +36,7 @@ export const useGetItems = () => {
         status: "error",
         title: "Failed to fetch NFTs",
       });
+      console.log(error);
     } finally {
       setLoading(false);
     }

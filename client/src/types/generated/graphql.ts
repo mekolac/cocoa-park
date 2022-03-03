@@ -187,7 +187,7 @@ export type ItemsQuery = { __typename?: 'Query', items: Array<{ __typename?: 'It
 
 export const ItemsDocument = gql`
     query Items {
-  items(first: 5) {
+  items {
     id
     tokenId
     sellerAddress

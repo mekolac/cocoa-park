@@ -102,7 +102,7 @@ export const useCreateItem = () => {
       setTokenId(_tokenId);
       setBase64("");
       tx = await wallet.nftContract.approve(
-        wallet.marketContract.getAddress(),
+        wallet.marketContract.address,
         _tokenId
       );
       await tx.wait();
