@@ -1,0 +1,32 @@
+
+¦ždataSources:
+  - kind: ethereum/contract
+    mapping:
+      abis:
+        - file:
+            /: /ipfs/QmRR7Mbo1CFwPSDMf1TrovLuveanPdaecE1GMFvS9fMidC
+          name: SimpleMarketplaceNativeERC721
+      apiVersion: 0.0.5
+      entities:
+        - Item
+      eventHandlers:
+        - event: >-
+            NewListing(indexed uint256,indexed uint256,indexed
+            address,uint256,address,uint256)
+          handler: handleNewListing
+      file:
+        /: /ipfs/QmWjoMrZAZsF96Gjy3i4DYje4BY3XAmHBVsKjfm9zRHCpY
+      kind: ethereum/events
+      language: wasm/assemblyscript
+    name: Marketplace
+    network: mainnet
+    source:
+      abi: SimpleMarketplaceNativeERC721
+      address: '0xe05Ba3b9c9c33ce3db3cbf28c28Cfa30281D068E'
+description: Gravatar for Ethereum
+repository: 'https://github.com/graphprotocol/example-subgraph'
+schema:
+  file:
+    /: /ipfs/QmTq9TUMu8RuoqJLwD4SxMWvVpCAswb2LnDpjxLTjAitwR
+specVersion: 0.0.2
+ž

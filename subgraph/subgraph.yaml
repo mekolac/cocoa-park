@@ -1,0 +1,25 @@
+specVersion: 0.0.2
+description: Gravatar for Ethereum
+repository: https://github.com/graphprotocol/example-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Marketplace
+    network: mainnet
+    source:
+      address: '0xe05Ba3b9c9c33ce3db3cbf28c28Cfa30281D068E'
+      abi: SimpleMarketplaceNativeERC721
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Item
+      abis:
+        - name: SimpleMarketplaceNativeERC721
+          file: ./abis/SimpleMarketplaceNativeERC721.json
+      eventHandlers:
+        - event: NewListing(indexed uint256,indexed uint256,indexed address,uint256,address,uint256)
+          handler: handleNewListing
+      file: ./src/mapping.ts
