@@ -2,7 +2,7 @@ import { useToast } from "@chakra-ui/react";
 import { useWalletContext } from "context/WalletProvider";
 import { ethers } from "ethers";
 import { NFTStorage } from "nft.storage";
-import { ChangeEventHandler, useState } from "react";
+import { ChangeEventHandler, useEffect, useState } from "react";
 
 const nftStorage = new NFTStorage({
   token: process.env.NEXT_PUBLIC_NFT_STORAGE_KEY ?? "",
@@ -123,14 +123,14 @@ export const useCreateItem = () => {
 
   const sell = async () => {
     try {
-      if (!wallet.signer || !wallet.marketContract) {
+      if (!wallet.signer || !wallet.viewMarketContract) {
         return;
       }
 
       // Sell NFT to marketplace
       const priceEth = ethers.utils.parseUnits(price.toString(), "ether");
 
-      let tx = await wallet.marketContract.list(Number(tokenId), priceEth);
+      let tx = await wallet.viewMarketContract.list(Number(tokenId), priceEth);
       await tx.wait();
 
       toast({

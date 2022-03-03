@@ -7,7 +7,11 @@ import { fetchMetadata, Metadata } from "utils/fetchMetadata";
 
 export const useGetItems = () => {
   const toast = useToast();
-  const { signer, nftContract, marketContract } = useWalletContext();
+  const {
+    signer,
+    viewNftContract: nftContract,
+    viewMarketContract: marketContract,
+  } = useWalletContext();
 
   const { data } = useItemsQuery();
 
