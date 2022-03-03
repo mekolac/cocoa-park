@@ -24,9 +24,9 @@ export const Header: VFC = () => {
             <NextLink href={ROUTES.mint}>
               <Link fontSize="18px">Mint</Link>
             </NextLink>
-            <NextLink href={ROUTES.mypage}>
+            {/* <NextLink href={ROUTES.mypage}>
               <Link fontSize="18px">My Page</Link>
-            </NextLink>
+            </NextLink> */}
           </HStack>
         </HStack>
 
