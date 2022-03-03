@@ -1,0 +1,8 @@
+query Items {
+  items(first: 5) {
+    id
+    tokenId
+    sellerAddress
+    price
+  }
+}

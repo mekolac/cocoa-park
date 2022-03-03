@@ -1,14 +1,14 @@
 specVersion: 0.0.2
-description: Gravatar for Ethereum
-repository: https://github.com/graphprotocol/example-subgraph
+description: CocoA Park
+repository: https://github.com/show-coco/cocoa-park
 schema:
   file: ./schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: Marketplace
-    network: mainnet
+    network: rinkeby
     source:
-      address: '0xe05Ba3b9c9c33ce3db3cbf28c28Cfa30281D068E'
+      address: '0x1117F622211DA4eaA48abE5fE6B1743205E7473c' # Renkeby
       abi: SimpleMarketplaceNativeERC721
     mapping:
       kind: ethereum/events

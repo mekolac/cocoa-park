@@ -7,7 +7,7 @@
     "create-local": "graph create show-coco/cocoa-park --node http://127.0.0.1:8020",
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy show-coco/cocoa-park --ipfs https://api.thegraph.com/ipfs/ --node https://api.thegraph.com/deploy/",
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ show-coco/cocoa-park",
     "deploy-local": "graph deploy show-coco/cocoa-park --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020"
   },
   "devDependencies": {

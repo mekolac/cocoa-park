@@ -1,0 +1,18 @@
+schema: http://127.0.0.1:8000/subgraphs/name/show-coco/cocoa-park
+documents:
+  - ./src/graphql/queries/*.graphql
+overwrite: true
+generates:
+  ./src/types/generated/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-operations # .tsx に書いた query, mutation 等から対応する型を生成する
+      - typescript-react-apollo # .tsx に書いた query, mutation 等から対応する hooks を生成する
+    config:
+      skipTypename: false
+      withHooks: true
+      withHOC: false
+      withComponent: false
+  ./graphql.schema.json:
+    plugins:
+      - introspection

@@ -144,13 +144,6 @@ export const useCreateItem = () => {
     }
   };
 
-  const getNFT = async () => {
-    const a = await wallet.marketContract?.nft();
-    console.log(a);
-  };
-
-  getNFT();
-
   return {
     name,
     description,
