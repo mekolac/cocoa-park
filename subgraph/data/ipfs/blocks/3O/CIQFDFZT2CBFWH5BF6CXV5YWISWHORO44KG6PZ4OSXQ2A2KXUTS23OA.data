@@ -1,9 +1,0 @@
-
-ictype Item @entity {
-  id: ID!
-  listId: ID!
-  tokenId: ID!
-  sellerAddress: ID!
-  price: BigInt!
-}
-c

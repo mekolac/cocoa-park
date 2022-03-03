@@ -1,9 +1,0 @@
-
-lftype Item @entity {
-  id: ID!
-  tokenId: ID!
-  sellerAddress: ID!
-  price: BigInt!
-  sold: Boolean!
-}
-f
