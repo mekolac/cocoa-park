@@ -8,6 +8,9 @@ export const WalletContext = createContext<WalletContextType>({
   requestToConnect: () => {
     throw new Error("requestToConnect function is not initialized");
   },
+  requestToChangeNetwork: () => {
+    throw new Error("requestToChangeNetwork function is not initialized");
+  },
 });
 
 export const useWalletContext = () => useContext(WalletContext);

@@ -102,7 +102,7 @@ export const useCreateItem = () => {
       setTokenId(_tokenId);
       setBase64("");
       tx = await wallet.nftContract.approve(
-        wallet.marketContract.address,
+        wallet.viewMarketContract?.address,
         _tokenId
       );
       await tx.wait();
@@ -123,14 +123,14 @@ export const useCreateItem = () => {
 
   const sell = async () => {
     try {
-      if (!wallet.signer || !wallet.viewMarketContract) {
+      if (!wallet.signer || !wallet.marketContract) {
         return;
       }
 
       // Sell NFT to marketplace
       const priceEth = ethers.utils.parseUnits(price.toString(), "ether");
 
-      let tx = await wallet.viewMarketContract.list(Number(tokenId), priceEth);
+      let tx = await wallet.marketContract.list(Number(tokenId), priceEth);
       await tx.wait();
 
       toast({

@@ -13,7 +13,6 @@ export const fetchMetadata = async (
   nftContract: Contract
 ): Promise<Metadata> => {
   let res = await nftContract.tokenURI(item.tokenId);
-  console.log("Hello");
   console.log(res);
   const url = res.replace(/^ipfs:\/\//, "https://ipfs.io/ipfs/");
   res = await fetch(url);

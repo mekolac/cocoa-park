@@ -1,4 +1,7 @@
-import { Contract, ethers } from "ethers";
+import { useToast } from "@chakra-ui/react";
+import { Contract } from "bunzz-sdk";
+import { CHAIN_ID } from "constants/chainIds";
+import { Contract as EthersContract, ethers } from "ethers";
 import { useEffect, useState } from "react";
 import {
   getMarketContract,
@@ -12,22 +15,26 @@ export type UseWalletReturns = {
   provider?: ethers.providers.Web3Provider;
   signer?: ethers.providers.JsonRpcSigner;
   accountAddress?: string;
-  viewNftContract?: Contract;
-  viewMarketContract?: Contract;
+  viewNftContract?: EthersContract;
+  viewMarketContract?: EthersContract;
   nftContract?: Contract;
   marketContract?: Contract;
   isConnected: boolean;
   requestToConnect: () => Promise<void>;
+  requestToChangeNetwork: () => Promise<void>;
 };
 
 export const useWallet = (): UseWalletReturns => {
   const [provider, setProvider] = useState<ethers.providers.Web3Provider>();
   const [signer, setSigner] = useState<ethers.providers.JsonRpcSigner>();
+  const toast = useToast();
 
   const [isConnected, setIsConnected] = useState<boolean>(false);
+  const [isCorrectChain, setIsCorrectChain] = useState<boolean>(false);
   const [accountAddress, setAccountAddress] = useState<string>();
-  const [viewNftContract, setViewNftContract] = useState<Contract>();
-  const [viewMarketContract, setViewMarketContract] = useState<Contract>();
+  const [viewNftContract, setViewNftContract] = useState<EthersContract>();
+  const [viewMarketContract, setViewMarketContract] =
+    useState<EthersContract>();
   const [nftContract, setNftContract] = useState<Contract>();
   const [marketContract, setMarketContract] = useState<Contract>();
 
@@ -75,10 +82,10 @@ export const useWallet = (): UseWalletReturns => {
   const setContract = async () => {
     if (!signer) return;
 
-    const nftContract = await getNftContract(signer);
+    const nftContract = await getNftContract();
     setNftContract(nftContract);
 
-    const marketContract = await getMarketContract(signer);
+    const marketContract = await getMarketContract();
     setMarketContract(marketContract);
   };
 
@@ -94,6 +101,25 @@ export const useWallet = (): UseWalletReturns => {
     }
   };
 
+  const requestToChangeNetwork = async () => {
+    try {
+      await window.ethereum.request({
+        method: "wallet_switchEthereumChain",
+        params: [{ chainId: CHAIN_ID.rinkeby }], // chainId must be in hexadecimal numbers
+      });
+      setIsCorrectChain(true);
+      toast({
+        status: "success",
+        title: "Successfully changed network",
+      });
+    } catch (error) {
+      toast({
+        status: "error",
+        title: "Network change failed",
+      });
+    }
+  };
+
   return {
     accountAddress,
     provider,
@@ -104,5 +130,6 @@ export const useWallet = (): UseWalletReturns => {
     signer,
     isConnected,
     requestToConnect,
+    requestToChangeNetwork,
   };
 };
