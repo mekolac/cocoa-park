@@ -2806,10 +2806,10 @@ buffer@^6.0.1, buffer@^6.0.3:
     base64-js "^1.3.1"
     ieee754 "^1.2.1"
 
-bunzz-sdk@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/bunzz-sdk/-/bunzz-sdk-1.0.5.tgz#50ade4df042f5810c39d251b185927e155a60d70"
-  integrity sha512-Ng5Efi1oDfeHzN3sZKhw+N3sitbIkrRUlfk5pwBfwd175LAtU84VEZvaSOiZnvPTiwnoZlQY6EEurBPCNGoPZA==
+bunzz-sdk@1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/bunzz-sdk/-/bunzz-sdk-1.0.7.tgz#c222575f4567c78099853d7652ea21d27fbd57d8"
+  integrity sha512-aUuln1Eexdu8fwbOGwEGTAy0xjyNS8cYD5XV0+SvJG2wZh2iqNvmkfFrlNo2xtrRqAqu3p7drSr8Ni+gDWqJ5Q==
   dependencies:
     dotenv-cli "^4.1.1"
     ethers "^5.4.4"

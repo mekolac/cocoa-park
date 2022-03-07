@@ -14,7 +14,7 @@
     "@chakra-ui/react": "^1.8.6",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "bunzz-sdk": "^1.0.5",
+    "bunzz-sdk": "1.0.7",
     "dayjs": "^1.10.8",
     "ethers": "^5.5.4",
     "framer-motion": "^6",
